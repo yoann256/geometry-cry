@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://2msifxmit20o"]
+
+[ext_resource type="Script" uid="uid://nhwv7w5adye0" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://ybxeo32nxvnk" path="res://logo.png" id="2_7vrkn"]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_06t4h")
+
+[node name="Main" type="Panel" parent="."]
+offset_right = 1149.0
+offset_bottom = 650.0
+
+[node name="PlayButton" type="Button" parent="Main"]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 182.0
+offset_right = 782.0
+offset_bottom = 440.0
+theme_override_font_sizes/font_size = 130
+text = "Play"
+
+[node name="TextureRect" type="TextureRect" parent="Main"]
+layout_mode = 0
+offset_right = 1169.0
+offset_bottom = 165.0
+texture = ExtResource("2_7vrkn")
+expand_mode = 1
+
+[connection signal="pressed" from="Main/PlayButton" to="." method="_on_play_button_pressed"]

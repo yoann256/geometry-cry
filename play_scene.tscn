@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=4 uid="uid://cxlxgmgpgx05x"]
+
+[ext_resource type="Script" uid="uid://fmgekywf6loh" path="res://play_scene.gd" id="1_a0jw4"]
+[ext_resource type="Script" uid="uid://py45f2xu46mr" path="res://player.gd" id="1_memhf"]
+[ext_resource type="Texture2D" uid="uid://bodbkd5f83opk" path="res://icons/cube.png" id="2_0tbyp"]
+[ext_resource type="TileSet" uid="uid://ddvb4i6a6r6se" path="res://levels/level.tres" id="4_a0jw4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tbyp"]
+size = Vector2(128, 115)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1p5oe"]
+size = Vector2(2023, 276)
+
+[sub_resource type="Gradient" id="Gradient_a0jw4"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.811688, 1)
+colors = PackedColorArray(0.31321, 0.522067, 1, 1, 0.313726, 0.521569, 1, 1, 0.313726, 0.521569, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5i074"]
+gradient = SubResource("Gradient_a0jw4")
+fill = 1
+
+[node name="PlayScene" type="Node2D"]
+script = ExtResource("1_a0jw4")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(119, 330)
+script = ExtResource("1_memhf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(51, 49)
+scale = Vector2(1.01538, 0.921875)
+texture = ExtResource("2_0tbyp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(51, 47.5)
+shape = SubResource("RectangleShape2D_0tbyp")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 450)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(580.5, 128)
+shape = SubResource("RectangleShape2D_1p5oe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(578, 141)
+scale = Vector2(31.5938, 4.81249)
+texture = SubResource("GradientTexture2D_5i074")
+
+[node name="Level" type="TileMapLayer" parent="."]
+position = Vector2(396, -173)
+tile_map_data = PackedByteArray("AAAIAAQAAQABAAAAAAAIAAMAAQABAAAAAAALAAQAAQABAAAAAAALAAMAAQABAAAAAAALAAIAAQABAAAAAAAFAAQAAQABAAAAAAAHAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAADAAAAAQAAAAAAADAEAAAAAQAAAAAAADAFAAAAAQAAAAAAADAEAP//AQABAAAAAAAFAP//AQABAAAAAAADAP//AQABAAAAAAAOAAIAAQABAAAAAAAPAAIAAQABAAAAAAAQAAIAAQABAAAAAAARAAIAAQABAAAAAAAVAAEAAQABAAAAAAAWAAEAAQABAAAAAAAXAAEAAQABAAAAAAAYAAEAAQABAAAAAAAZAAEAAQABAAAAAAARAAEAAQAAAAAAAAAUAAEAAQABAAAAAAATAAEAAQABAAAAAAAZAAAAAQAAAAAAAAAYAAAAAQAAAAAAAAAcAAAAAQABAAAAAAAcAAEAAQABAAAAAAAcAAIAAQABAAAAAAAcAAMAAQABAAAAAAAcAAQAAQABAAAAAAAdAAAAAQABAAAAAAAeAAAAAQABAAAAAAAfAAAAAQABAAAAAAAgAAAAAQABAAAAAAAhAAAAAQABAAAAAAAhAAEAAQABAAAAAAAhAAIAAQABAAAAAAAhAAMAAQABAAAAAAAhAAQAAQABAAAAAAAhAP//AQAAAAAAAAAgAP//AQAAAAAAAAAUAPn/AQABAAAAAAAUAPj/AQABAAAAAAAUAPf/AQABAAAAAAAUAPr/AQABAAAAAAAUAPv/AQABAAAAAAAUAPb/AQABAAAAAAAeAPv/AQABAAAAAAAeAPr/AQABAAAAAAAeAPn/AQABAAAAAAAeAPj/AQABAAAAAAAeAPf/AQABAAAAAAAeAPb/AQABAAAAAAAeAPX/AQABAAAAAAAUAPX/AQABAAAAAAAVAPv/AQABAAAAAAAWAPv/AQABAAAAAAAcAPv/AQABAAAAAAAdAPv/AQABAAAAAAAbAPv/AQABAAAAAAAaAPv/AQABAAAAAAAZAPv/AQABAAAAAAAYAPv/AQABAAAAAAAXAPv/AQABAAAAAAA=")
+tile_set = ExtResource("4_a0jw4")
