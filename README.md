@@ -15,4 +15,4 @@ Most code come from me, some assets like icons come from RobTop, check the origi
 If you'd like to contribute, try to keep the same code format as mine and the same scene naming scheme.\
 When adding texture, use the Atlas Merging Tool in Godot to add your textures in the spritesheet.
 > [!IMPORTANT]
-> Do not put game textures (e.g. the play button texture) in GCSpritesheet1.png, either create another spritesheet, or just use the texture directly with no spritesheet. (recommended)
+> Do not put game textures (e.g. the play button texture) in GCSpriteSheet01.png, either create another spritesheet, or just use the texture directly with no spritesheet. (recommended)
